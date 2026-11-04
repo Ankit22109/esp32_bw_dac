@@ -1,11 +1,5 @@
 dependencies:
-  a2dp_sink_common_utils:
-    version: "*"
-  a2dp_sink_ext_codec_utils:
-    version: "*"
-  a2dp_sink_int_codec_utils:
-    version: "*"
-  bredr_app_common_utils:
-    version: "*"
-  bt_app_core_utils:
-    version: "*"
+  espressif/bt_app_core_utils: "^1.0.0"
+  espressif/bredr_app_common_utils: "^1.0.0"
+  espressif/a2dp_sink_common_utils: "^1.0.0"
+  espressif/a2dp_sink_int_codec_utils: "^1.0.0"
