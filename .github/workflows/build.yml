@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Use the official Espressif Docker container containing the ESP-IDF toolchain
+    container: espressif/idf:release-v6.0.1
 
     steps:
     - name: Checkout repository
@@ -16,16 +18,15 @@ jobs:
       with:
         submodules: 'recursive'
 
-    - name: esp-idf build
-      uses: espressif/idf-build-action@v1
-      with:
-        esp_idf_version: 'v6.0.1' # Change to match your local ESP-IDF version
-        target: 'esp32'
+    - name: Build with idf.py
+      run: |
+        . $IDF_PATH/export.sh
+        idf.py build
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: esp32-bw-dac-binaries
+        name: esp32-bluetooth-dac-binaries
         path: |
           build/bootloader/bootloader.bin
           build/partition_table/partition-table.bin
