@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e79a4d5067ed73c2c11a6682c32ad081f72c480c
+
 # Esp32_bw_dac
 This Project focuses on transmitting digital audio to external DAC like PCM5102A which uses i2s communication by utilizing esp32 bluetooth or wifi wireless compatibility. Its kind of hybrid project and user can either connect from bluetooth or wifi at a time.
 
