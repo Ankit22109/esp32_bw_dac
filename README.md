@@ -117,6 +117,4 @@ Also, the sound will be heard if a loudspeaker is connected and possible externa
 ## Troubleshooting
 * For current stage, the supported audio codec in ESP32 A2DP is SBC. SBC data stream is transmitted to A2DP sink and then decoded into PCM samples as output. The PCM data format is normally of 44.1kHz sampling rate, two-channel 16-bit sample stream. Other SBC configurations in ESP32 A2DP sink is supported but need additional modifications of protocol stack settings.
 * As a usage limitation, ESP32 A2DP sink can support at most one connection with remote A2DP source devices. Also, A2DP sink cannot be used together with A2DP source at the same time, but can be used with other profiles such as SPP and HFP.
->>>>>>> a220998 (Initial commit)
-=======
->>>>>>> e79a4d5067ed73c2c11a6682c32ad081f72c480c
+
