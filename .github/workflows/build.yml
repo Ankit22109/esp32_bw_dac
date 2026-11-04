@@ -9,8 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Use the official Espressif Docker container containing the ESP-IDF toolchain
-    container: espressif/idf:release-v6.0
+    # Updated to the exact Docker Hub tag for version 6.0.1
+    container: espressif/idf:v6.0.1
 
     steps:
     - name: Checkout repository
