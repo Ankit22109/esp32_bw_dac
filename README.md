@@ -4,13 +4,6 @@ This Project focuses on transmitting digital audio to external DAC like PCM5102A
 
 
 
-## Esp32 Gpio pin connection to PCM5102A
-### 1. GPIO-22 : DIN (Data In)
-### 2. GPIO-25:  LCK (Left/Right Clock)
-### 3. GPIO-26:  BIN (Bit Clock)
-### 4. GND : SCK and GND
-### 5. 3.3v or 5v : VIN
-
 
 
 ## Important Note
@@ -23,9 +16,8 @@ Only one device can connect at time via either wifi or bluetooth after connectin
 
 ### 3. Bluetooth issue with Windows
 It might not work well with windows as it will disconnect automatically after some time try connecting via wifi.
-<<<<<<< HEAD
 
-=======
+
 | Supported Targets | ESP32 |
 | ----------------- | ----- |
 
@@ -68,9 +60,9 @@ For the I2S codec, pick whatever chip or board works for you; this code was writ
 
 | ESP pin   | I2S signal   |
 | :-------- | :----------- |
-| GPIO27    | LRCK         |
-| GPIO25    | DATA         |
-| GPIO26    | BCK          |
+| GPIO25    | LRCK         |
+| GPIO22    | DATA         |
+| GPIO26.   | BCK          |
 
 If the internal DAC is selected, analog audio will be available on GPIO25 and GPIO26. The output resolution on these pins will always be limited to 8 bit because of the internal structure of the DACs.
 
