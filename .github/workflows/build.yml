@@ -11,23 +11,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        submodules: 'recursive'
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
 
-    # The official action automatically handles the Docker environment and leaves the files accessible
-    - name: Build Espressif Project
-      uses: espressif/esp-idf-ci-action@v1
-      with:
-        esp_idf_version: v6.1
+      - name: Build Espressif Project
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v6.1
+          target: esp32
+          path: '.'
 
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: esp32-bluetooth-dac-binaries
-        path: |
-          build/bootloader/bootloader.bin
-          build/partition_table/partition-table.bin
-          build/firmware.bin
-          build/**/*.bin
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: esp32-bluetooth-dac-binaries
+          path: |
+            build/bootloader/bootloader.bin
+            build/partition_table/partition-table.bin
+            build/*.bin
+          if-no-files-found: error
