@@ -140,13 +140,10 @@ static void i2s_write_task(void *pvParameters)
             total_samples = AUDIO_BUFFER_MAX_SAMPLES;
         }
 
-        for (size_t i = 0; i < total_samples; i++) {
-            int16_t audio_data = (int16_t)data16[i];
-
-            // Volume: 0..127, 127 = unity gain
-            int16_t s = (audio_data * s_volume) / 127;
-
-            local_audio_buf16[i] = s;
+         for (size_t i = 0; i < total_samples; i++) {
+            int32_t sample = (int32_t)data16[i];
+            // Scale and handle volume (0..127)
+            local_audio_buf16[i] = (int16_t)((sample * s_volume) / 127);
         }
 
         vRingbufferReturnItem(s_audio_ringbuf, (void *)data16);
