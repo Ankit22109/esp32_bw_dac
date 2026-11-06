@@ -59,6 +59,9 @@ static void init_i2s(void)
         },
     };
 
+    std_cfg.slot_cfg.slot_mask = I2S_STD_SLOT_LEFT | I2S_STD_SLOT_RIGHT; // Enable both left and right channels
+    std_cfg.slot_cfg.slot_bit_width = I2S_DATA_BIT_WIDTH_32BIT; // Set slot bit width to 32 bits
+
     i2s_channel_init_std_mode(tx_handle, &std_cfg);
     i2s_channel_enable(tx_handle);
 }
