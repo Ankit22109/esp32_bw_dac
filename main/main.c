@@ -13,7 +13,7 @@
 #include "esp_netif.h"
 #include "freertos/ringbuf.h"
 
-#define AUDIO_RINGBUF_SIZE (1024 * 128) // Allocate 128KB for the buffer
+#define AUDIO_RINGBUF_SIZE (1024 * 64) // Allocate 64KB for the buffer
 static RingbufHandle_t s_audio_ringbuf = NULL;
 static TaskHandle_t s_i2s_write_task_handle = NULL;
 
