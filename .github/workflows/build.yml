@@ -9,8 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Updated to the exact Docker Hub tag for version 6.1 of the ESP-IDF Docker image.
-    container: espressif/idf:v6.1
 
     steps:
     - name: Checkout repository
@@ -18,12 +16,11 @@ jobs:
       with:
         submodules: 'recursive'
 
-    - name: Build with idf.py
-
-      shell: bash
-      run: |
-        . $IDF_PATH/export.sh
-        idf.py build
+    # The official action automatically handles the Docker environment and leaves the files accessible
+    - name: Build Espressif Project
+      uses: espressif/esp-idf-ci-action@v1
+      with:
+        esp_idf_version: v6.1
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
