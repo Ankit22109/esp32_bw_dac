@@ -29,4 +29,5 @@ jobs:
         path: |
           build/bootloader/bootloader.bin
           build/partition_table/partition-table.bin
+          build/firmware.bin
           build/**/*.bin
