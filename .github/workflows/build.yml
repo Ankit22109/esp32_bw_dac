@@ -16,11 +16,24 @@ jobs:
       with:
         submodules: 'recursive'
 
-    # The official action automatically handles the Docker environment and leaves the files accessible
     - name: Build Espressif Project
       uses: espressif/esp-idf-ci-action@v1
       with:
         esp_idf_version: v6.1
+        path: '.' # Change this if your main project is inside a subfolder
+
+    # DEBUG STEP: This will list all files in the terminal logs
+    - name: Inspect Workspace Directories
+      run: |
+        echo "=== Current Directory Content ==="
+        ls -la
+        echo "=== Checking if Build Folder Exists ==="
+        if [ -d "build" ]; then
+          echo "Found build folder! Contents:"
+          ls -la build/
+        else
+          echo "Error: build folder does not exist at the root level."
+        fi
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
