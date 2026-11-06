@@ -121,11 +121,14 @@ static void i2s_write_task(void *pvParameters)
         return;
     }
 
+    const size_t max_bytes_to_receive = AUDIO_BUFFER_MAX_SAMPLES * sizeof(int16_t);
+
     while (1) {
-        int16_t *data16 = (int16_t *)xRingbufferReceive(
+        int16_t *data16 = (int16_t *)xRingbufferReceiveUpTo(
             s_audio_ringbuf,
             &item_size,
-            portMAX_DELAY
+            portMAX_DELAY,
+            max_bytes_to_receive
         );
 
         if (data16 == NULL) {
